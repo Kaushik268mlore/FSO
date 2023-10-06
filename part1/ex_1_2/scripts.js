@@ -72,9 +72,9 @@ exercise:7,
   // )
   return [
     <div>
-    <Headers course ={course}/>
+    {/* <Headers course ={course}/> */}
     <Content course={course}/>
-    <Total course={course}/>
+    {/* <Total course={course}/> */}
     </div>
   ]
 }
