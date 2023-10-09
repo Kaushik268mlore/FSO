@@ -96,31 +96,62 @@ import { useState } from 'react'
 //   )
 // }
 
-const Display =(props)=>{
-return (
-  <div>{props.counter}</div>
-)
-}
-const BUTT=(props)=>{
-  return (
-    <button onClick={props.handle} >
-      {props.tt}
-    </button>
-  )
-}
+// const Display =(props)=>{
+// return (
+//   <div>{props.counter}</div>
+// )
+// }
+// const BUTT=(props)=>{
+//   return (
+//     <button onClick={props.handle} >
+//       {props.tt}
+//     </button>
+//   )
+// }
+// const App=()=>{
+//   const [counter,setCounter]=useState(0);
+//   const incre=()=>{setCounter(counter+1)};
+//   const decre=()=>{setCounter(counter-1)};
+//   const reset=()=>{setCounter(0)};
+//   return (
+//     <div>
+//       <Display counter ={counter}></Display>
+//       <br></br>
+//       <BUTT handle={incre} tt='plus'></BUTT>
+//       <BUTT handle={decre} tt='minus'></BUTT>
+//       <BUTT handle={reset} tt='reset'></BUTT>
+//     </div>
+//   )
+// }
+// A more complex state, debugging React apps
 const App=()=>{
-  const [counter,setCounter]=useState(0);
-  const incre=()=>{setCounter(counter+1)};
-  const decre=()=>{setCounter(counter-1)};
-  const reset=()=>{setCounter(0)};
-  return (
-    <div>
-      <Display counter ={counter}></Display>
-      <br></br>
-      <BUTT handle={incre} tt='plus'></BUTT>
-      <BUTT handle={decre} tt='minus'></BUTT>
-      <BUTT handle={reset} tt='reset'></BUTT>
-    </div>
-  )
+  const [counter,setCounter]=useState({
+    left:0,
+    right:0,
+  })
+  const incleft=()=>{const updated={
+  left:counter.left+1,
+  right:counter.right,
+  }
+setCounter(updated)
 }
+  const incright=()=>{
+    const update={
+    left:counter.left,
+    right:counter.right+1,}
+    setCounter(update)
+  }
+return (
+  <div>
+    {counter.left}
+    <button onClick={incleft}>incleft</button>
+    {counter.right}
+    <button onClick={incright}>incright</button>
+
+  </div>
+)
+
+}
+
+
 export default App
